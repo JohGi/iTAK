@@ -172,10 +172,11 @@ def get_db_path():
             os.makedirs(db_path)
             return db_path
 
-    # check current dir db path
-    current_dir_dbpath = os.path.join(os.getcwd(), 'database')
-    if os.path.exists(current_dir_dbpath):
-        return current_dir_dbpath
+    # check itak dir db path
+    itak_dir = Path(__file__).resolve().parent
+    itak_dir_dbpath = os.path.join(itak_dir, 'database')
+    if os.path.exists(itak_dir_dbpath):
+        return itak_dir_dbpath
     # can not find db path, reinstall the program
     print(f"Can not find the database path, please run iTAK.py to install database")
     #sys.exit(1)
